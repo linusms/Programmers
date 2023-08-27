@@ -1,0 +1,31 @@
+# 가능한 모든 경우의 수를 다 찾고 B가 가능한지 여부 확인함
+
+def solution(A, B):
+    possible_list=[A]
+    
+    for i in range(len(A)-1,0, -1):
+        new_A=list(A)[i:len(A)+1]
+        new_A.extend(list(A)[:i])
+        possible_list.append("".join(new_A))
+
+    if B in possible_list:
+        answer=possible_list.index(B)
+    else:
+        answer=-1
+    
+    return answer
+
+# 더 나은 풀이 : [-1]+[:-1]로 간단히 1씩 오른쪽으로 민 새로운 문자열 생성
+
+def solution(A, B):
+    for i in range(len(A)):
+        if A == B: # for문 통해서 반복 돌렸는데 a,b 가 같다면
+            return i # 바로 결과값 i 반환 -> 0 반환하겠지?
+        else: # 두 값이 같지 않다면
+            A = A[-1] + A[:-1] # A를 한칸씩 밀기 -> 그리고 다시 비교함
+    return -1 # 같지 않으니까 -1 반환
+
+# 아주 간단하게 푼 풀이 : B를 2배로 늘린 후 A단어의 위치를 찾는다
+
+def solution(A, B): 
+    return (B * 2).find(A) 
