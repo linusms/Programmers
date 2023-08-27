@@ -1,0 +1,42 @@
+def solution(s):
+    i=0
+    answer=0
+    x_cnt=0
+    not_x_cnt=0
+    for idx in range(i,len(s)):
+        x=s[i]
+        if s[idx]==x:
+            x_cnt+=1
+        else:
+            not_x_cnt+=1
+        if x_cnt==not_x_cnt:
+            i=idx+1
+            answer+=1
+            if idx==len(s)-1:
+                answer-=1
+    answer+=1
+
+    return answer
+
+# 더 나은 풀이 : 원리는 비슷하지만 구조가 더 단순하다. 
+# + 문자열은 인덱싱 하지 않아도 iterable 한 객체이다
+
+"""
+시작 문자 등장 횟수, 다른 문자 등장 횟수 같아지면 분리
+나머지 똑같이 반복
+남은 부분 없으면 종료, 횟수가 끝까지 같아지지 않으면 종료
+"""
+
+def solution(s):
+    answer = 0
+    cnt1 = 0
+    cnt2 = 0
+    for ss in s:
+        if cnt1 == cnt2:
+            answer += 1
+            x = ss
+        if x == ss:
+            cnt1+=1
+        else:
+            cnt2+=1
+    return answer
