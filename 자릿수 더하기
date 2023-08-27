@@ -1,0 +1,4 @@
+def solution(n):
+    n_num=list(str(n))
+    answer=sum(map(int,n_num))
+    return answer
