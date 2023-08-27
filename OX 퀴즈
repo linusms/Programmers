@@ -1,0 +1,13 @@
+# 3. OX 퀴즈
+
+def solution(quiz):
+    answer = []
+    for q in quiz:
+        prb, ans=q.replace(" ","", -1).split("=")
+        if eval(prb)==int(ans):
+            answer.append("O")
+        else:
+            answer.append("X")
+        
+    return answer
+
