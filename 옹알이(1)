@@ -1,0 +1,35 @@
+# 문제 1. 옹알이(1)
+
+##https://school.programmers.co.kr/tryouts/85889/challenges
+
+## 내 풀이
+
+from itertools import permutations
+
+def solution(babbling):
+    answer = 0
+    possible_list=[]
+    for i in range(1,5):
+        possible_list.extend([''.join(i) for i in list(permutations(['aya','ye','woo','ma'], i))])
+    
+    for i in range(len(babbling)):
+        if babbling[i] in possible_list:
+            answer+=1
+            
+    return answer
+
+## 더 간단한 풀이
+### replace한 후 공백 지우는 것까진 생각했지만 replace로 한번씩만 제거 가능하다는 사실을 인지하지 못함
+
+def solution(babbling):
+    answer = 0
+    words = ["aya", "ye", "woo", "ma"]
+    for item in babbling:
+        
+        for x in words:
+            item = item.replace(x, " ",1)  
+        if  item.strip() == "":
+            answer+=1
+        
+    
+    return answer
