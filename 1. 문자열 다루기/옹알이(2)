@@ -1,0 +1,29 @@
+# 9. 옹알이 (2)
+
+def solution(babbling):
+    answer = 0
+    for word in babbling:
+        for bab in ['aya', 'ye','woo','ma']:
+            if word.find(bab+bab)!=-1:
+                continue
+            else:
+                word=word.replace(bab, " ")
+        if word.isspace():
+            answer+=1
+    
+    return answer
+
+# 기존 답 : 똑같은 원리인데 왜 오류가 발생할까? 공백과 ""값의 차이인 것 같다.
+
+def solution(babbling):
+    answer = 0
+    for word in babbling:
+        for bab in ['aya', 'ye','woo','ma']:
+            if word.find(bab+bab)!=-1:
+                continue
+            else:
+                word=word.replace(bab, "")
+        if word=="":
+            answer+=1
+    
+    return answer
