@@ -1,5 +1,21 @@
 # 2. 문자열 계산하기
+# 공백은 지우지 않아도 eval 계산됨
+# 하지만, eval은 보안에 취약한 방법이고 로직이 구현되지 않았으므로 좋지 않은 풀이
 
 def solution(my_string):
     answer=eval(my_string.replace(" ","",-1))
     return answer
+
+# 다른 풀이
+
+def solution(my_string):
+    answer=0
+    for num in my_string.replace("-", "+ -").split("+")
+        answer+=int(sum)
+    return(answer)
+
+# 간단한 풀이
+
+def solution(my_string):
+    answer=0
+    return sum(int(num) for num in my_string.replace("-", "+ -").split("+")) 
