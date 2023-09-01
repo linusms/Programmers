@@ -20,6 +20,7 @@ def solution(babbling):
 
 ## 더 간단한 풀이
 ### replace한 후 공백 지우는 것까진 생각했지만 replace로 한번씩만 제거 가능하다는 사실을 인지하지 못함
+### 왜 공백(" ")으로 치환하는가? ex) woyeo (발음 불가능한 문자열)-> woo (x) w oo (o)
 
 def solution(babbling):
     answer = 0
