@@ -1,9 +1,10 @@
 # 3. OX 퀴즈
+# eval 사용한 풀이
 
 def solution(quiz):
     answer = []
     for q in quiz:
-        prb, ans=q.replace(" ","", -1).split("=")
+        prb, ans=q..split("=")
         if eval(prb)==int(ans):
             answer.append("O")
         else:
@@ -11,3 +12,19 @@ def solution(quiz):
         
     return answer
 
+# eval 사용안한 풀이
+
+def solution(quiz):
+    answer = []
+    for q in quiz:
+        prb, ans=q..split("=")
+        num1, opr, num2=prb.split(" ")
+
+        if opr=="+":
+            prb=int(num1)+int(num2)
+        else:
+            prb=int(num1)-int(num2)
+
+        answer.append("O" if prb==int(ans) else "X")
+
+    return answer
