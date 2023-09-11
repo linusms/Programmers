@@ -10,6 +10,7 @@ def solution(arr):
     return answer
 
 # (한 숫자씩만 저장하므로 굳이 리스트 형식으로 스택 필요없음)
+# 위 방법처럼 하나씩 비교하는것보다 훨씬 빠름(왜?)
 
 def solution(arr):
   answer=[arr[0]]
